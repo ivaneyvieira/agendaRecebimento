@@ -1,5 +1,6 @@
 package br.com.astrosoft.agenda.model
 
+import br.com.astrosoft.AppConfig
 import br.com.astrosoft.agenda.model.beans.UserSaci
 import br.com.astrosoft.framework.model.QueryDB
 import br.com.astrosoft.framework.util.DB
@@ -10,6 +11,7 @@ class QuerySaci: QueryDB(driver, url, username, password) {
     val sql = "/sqlSaci/userSenha.sql"
     return query(sql, UserSaci::class) {
       addParameter("login", login)
+      addOptionalParameter("appName", AppConfig.shortName)
     }.firstOrNull()
   }
   
@@ -17,6 +19,7 @@ class QuerySaci: QueryDB(driver, url, username, password) {
     val sql = "/sqlSaci/userSenha.sql"
     return query(sql, UserSaci::class) {
       addParameter("login", "TODOS")
+      addOptionalParameter("appName", AppConfig.shortName)
     }
   }
   
@@ -25,6 +28,7 @@ class QuerySaci: QueryDB(driver, url, username, password) {
     script(sql) {
       addOptionalParameter("login", user.login)
       addOptionalParameter("bitAcesso", user.bitAcesso)
+      addOptionalParameter("appName", AppConfig.shortName)
     }
   }
   
