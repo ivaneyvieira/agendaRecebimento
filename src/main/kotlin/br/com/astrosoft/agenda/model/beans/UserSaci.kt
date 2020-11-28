@@ -1,6 +1,7 @@
-package br.com.astrosoft.devolucao.model.beans
+package br.com.astrosoft.agenda.model.beans
 
-import br.com.astrosoft.devolucao.model.saci
+
+import br.com.astrosoft.agenda.model.saci
 import kotlin.math.pow
 
 class UserSaci {
@@ -19,26 +20,21 @@ class UserSaci {
       bitAcesso = if(value) bitAcesso or BIT_ATIVO
       else bitAcesso and BIT_ATIVO.inv()
     }
-  var nota01
-    get() = (bitAcesso and BIT_NOTA01) != 0 || admin
+  var pedidoPendente
+    get() = (bitAcesso and BIT_PEDIDO_PENDENTE) != 0 || admin
     set(value) {
-      bitAcesso = if(value) bitAcesso or BIT_NOTA01
-      else bitAcesso and BIT_NOTA01.inv()
+      bitAcesso = if(value) bitAcesso or BIT_PEDIDO_PENDENTE
+      else bitAcesso and BIT_PEDIDO_PENDENTE.inv()
     }
-  var nota66
-    get() = (bitAcesso and BIT_NOTA66) != 0 || admin
-    set(value) {
-      bitAcesso = if(value) bitAcesso or BIT_NOTA66
-      else bitAcesso and BIT_NOTA66.inv()
-    }
+
   
   val admin
     get() = login == "ADM"
   
   companion object {
     private val BIT_ATIVO = 2.pow(0)
-    private val BIT_NOTA01 = 2.pow(1)
-    private val BIT_NOTA66 = 2.pow(2)
+    private val BIT_PEDIDO_PENDENTE = 2.pow(1)
+
 
     
     fun findAll(): List<UserSaci>? {
