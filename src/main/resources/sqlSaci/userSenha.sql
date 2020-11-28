@@ -17,6 +17,6 @@ FROM sqldados.users          AS U
   LEFT JOIN sqldados.prntr   AS P
 	      ON P.no = U.prntno
   LEFT JOIN sqldados.userApp AS A
-	      ON A.userno = U.no AND A.appName = 'devFornecedor'
+	      ON A.userno = U.no AND A.appName = 'agenda'
 WHERE login = :login
    OR :login = 'TODOS'
