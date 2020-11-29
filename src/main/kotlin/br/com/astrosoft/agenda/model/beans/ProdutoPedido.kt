@@ -16,7 +16,7 @@ class ProdutoPedido(
   val grade: String,
   val loja: Int,
   val numeroPedido: Int,
-  val qtPendente: Double,
+  val qtPendente: Int,
   val refFab: String,
   val unidade: String,
   val vlPendente: Double
