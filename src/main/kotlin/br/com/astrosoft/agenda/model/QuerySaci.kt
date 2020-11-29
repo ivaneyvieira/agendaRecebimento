@@ -34,7 +34,7 @@ class QuerySaci: QueryDB(driver, url, username, password) {
   }
   
   fun findProdutoPedido(): List<ProdutoPedido> {
-    val sql= "/sqlSaci/produtosPendentes.sql"
+    val sql = "/sqlSaci/produtosPendentes.sql"
     return query(sql, ProdutoPedido::class)
   }
   

@@ -1,6 +1,5 @@
 package br.com.astrosoft.agenda.model.beans
 
-
 import br.com.astrosoft.agenda.model.saci
 import kotlin.math.pow
 
@@ -26,16 +25,12 @@ class UserSaci {
       bitAcesso = if(value) bitAcesso or BIT_PEDIDO_PENDENTE
       else bitAcesso and BIT_PEDIDO_PENDENTE.inv()
     }
-
-  
   val admin
     get() = login == "ADM"
   
   companion object {
     private val BIT_ATIVO = 2.pow(0)
     private val BIT_PEDIDO_PENDENTE = 2.pow(1)
-
-
     
     fun findAll(): List<UserSaci>? {
       return saci.findAllUser()
