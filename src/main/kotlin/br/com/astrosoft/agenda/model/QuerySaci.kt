@@ -1,6 +1,7 @@
 package br.com.astrosoft.agenda.model
 
 import br.com.astrosoft.AppConfig
+import br.com.astrosoft.agenda.model.beans.ProdutoPedido
 import br.com.astrosoft.agenda.model.beans.UserSaci
 import br.com.astrosoft.framework.model.QueryDB
 import br.com.astrosoft.framework.util.DB
@@ -30,6 +31,11 @@ class QuerySaci: QueryDB(driver, url, username, password) {
       addOptionalParameter("bitAcesso", user.bitAcesso)
       addOptionalParameter("appName", AppConfig.shortName)
     }
+  }
+  
+  fun findProdutoPedido(): List<ProdutoPedido> {
+    val sql= "/sqlSaci/produtosPendentes.sql"
+    return query(sql, ProdutoPedido::class)
   }
   
   companion object {
