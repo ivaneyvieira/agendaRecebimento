@@ -3,8 +3,9 @@ package br.com.astrosoft.agenda.model.beans
 import java.time.LocalDate
 
 class ProdutoPedido(
-  val aliqICMS: Double,
-  val aliqIPI: Double,
+  val loja: Int,
+  val sigla : String,
+  val numeroPedido: Int,
   val barcode: String,
   val codigo: String,
   val codigoFor: Int,
@@ -14,10 +15,12 @@ class ProdutoPedido(
   val descricao: String,
   val fornecedor: String,
   val grade: String,
-  val loja: Int,
-  val numeroPedido: Int,
   val qtPendente: Int,
   val refFab: String,
   val unidade: String,
-  val vlPendente: Double
-                   )
+  val vlPendente: Double,
+  val aliqICMS: Double,
+  val aliqIPI: Double,
+                   ){
+  var item : Int = 0
+}

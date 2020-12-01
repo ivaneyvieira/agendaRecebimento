@@ -1,4 +1,5 @@
 SELECT O.storeno                                                                                AS loja,
+       S.sname                                                                                  AS sigla,
        O.no                                                                                     AS numeroPedido,
        CAST(O.date AS DATE)                                                                     AS dataPedido,
        O.vendno                                                                                 AS codigoFor,
@@ -32,6 +33,8 @@ FROM sqldados.oprd           AS I
 	       ON P.no = I.prdno
   LEFT JOIN  sqldados.prdbar AS B
 	       ON B.prdno = I.prdno AND B.grade = I.grade
+  LEFT JOIN  sqldados.store  AS S
+	       ON S.no = O.storeno
 WHERE O.storeno IN (1, 2, 3, 4, 5, 6)
   AND O.status = 0
   AND V.name NOT LIKE 'ENGECOPI%'
