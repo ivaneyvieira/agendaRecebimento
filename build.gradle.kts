@@ -66,6 +66,9 @@ dependencies {
   implementation("org.imgscalr:imgscalr-lib:4.2")
   implementation("com.jcraft:jsch:0.1.55")
   implementation("org.cups4j:cups4j:0.7.6")
+  // https://mvnrepository.com/artifact/com.itextpdf/itextpdf
+  implementation("com.itextpdf:itextpdf:5.5.13.2")
+  
   // logging
   // currently we are logging through the SLF4J API to SLF4J-Simple. See src/main/resources/simplelogger.properties file for the logger configuration
   //implementation("com.github.appreciated:app-layout-addon:3.0.0.beta5")
